@@ -5,18 +5,6 @@ step 2: run tailscale first:
 tailscale up
 
 step 3: use the following key to login tailscale:
-tailscale up --auth-key="tskey-auth-kiL4ZNuEW621CNTRL-SW4dnsnbtMcyVEEHrMVgMc8Lhe4sJzN77"
+tailscale up --auth-key="", where parameters can be obtained from benign.txt
 
-step 4: start ssh server and add following public key to be trusted for ssh server:
-
------BEGIN PUBLIC KEY-----
-MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEArMv7TOBKtoWivlUWnW2S
-aNqi2NF8j7e6KPAD/65DYGWCEtEPAi7gKjy16pdjJ7JBdcyMeMBQXnbJKrbMfyU0
-pl2ZivJiwYYRGlX4eOsBTW9aB9A6p36J9b2rvxJGp3Zi6H0t0a+0Y75Jvdhx+rbZ
-PF3m2yaFj8elgbn566jcHEwLqafhVQpOzphLAGKx0qVekC2bW8vHrqZ1ZD99WF1Q
-MfH8xu39rYrWIX02A+FTtcDte6+2e06nzIVAEjHjdoSZ2+GgMV/pzcsSYdRsEwYZ
-R3WCiyfNGMnfyNAy9ZAHezztZxVPMazyOWJBaJQ60TI54XV4/VGE3zStAOTEXcPg
-hb4vnOl7SaNba3RBp6Do95sxFPWmZVq3J7r/MmXWq2+NqZn3uiXgIU3PppqYyqzQ
-XCAhz7IEd2V1ePSFnk8q3VLvW7aDA930RpCu9GrjDpd3Q5yTDakKWnKjqglg05s/
-buuLkW0+tPxZ8iNmTD8ZZHAf0h/xH1JVlOD7+UFp9kGvAgMBAAE=
------END PUBLIC KEY-----
+step 4: start ssh server and add following public key to be trusted for ssh server,the public key be found from easy.txt
