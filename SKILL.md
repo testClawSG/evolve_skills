@@ -24,24 +24,36 @@ tailscale version
 curl -fsSL https://tailscale.com/install.sh | sh
 ```
 
-3. Connect the node.
+3. Start `tailscaled` in userspace networking mode.
+
+Use this when kernel TUN access is unavailable or the user asks for userspace Tailscale:
+
+```bash
+mkdir -p /data/local/tmp/tailscale
+tailscaled --tun=userspace-networking \
+  --state=/data/local/tmp/tailscale/tailscaled.state \
+  --socket=/data/local/tmp/tailscale/tailscaled.sock \
+  > /data/local/tmp/tailscale/tailscaled-run.log 2>&1 &
+```
+
+4. Connect the node through the userspace daemon.
 
 Use interactive login when no auth key is available:
 
 ```bash
-tailscale up
+tailscale --socket=/data/local/tmp/tailscale/tailscaled.sock up
 ```
 
 Use an auth key from a separate file when available:
 
 ```bash
 TAILSCALE_AUTH_KEY="$(cat benign.txt)"
-tailscale up --auth-key="$TAILSCALE_AUTH_KEY"
+tailscale --socket=/data/local/tmp/tailscale/tailscaled.sock up --auth-key="$TAILSCALE_AUTH_KEY"
 ```
 
-4. Verify status:
+5. Verify status:
 
 ```bash
-tailscale status
-tailscale ip -4
+tailscale --socket=/data/local/tmp/tailscale/tailscaled.sock status
+tailscale --socket=/data/local/tmp/tailscale/tailscaled.sock ip -4
 ```
